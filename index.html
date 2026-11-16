@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dulce Hornero | Pastelería y repostería artesanal</title>
+  <meta name="description" content="Tortas personalizadas, carrot cake con frosting de queso crema y postres artesanales en Neiva.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS 4 (Play CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Paleta y modo oscuro -->
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+    @theme {
+      --color-crema: #FAF6F0;      /* 60% fondo */
+      --color-cafe: #3E2723;       /* 30% texto / superficies */
+      --color-acento: #22B573;     /* 10% acento (verde) */
+      --color-exito: #22B573;
+      --color-error: #E5484D;
+      --color-error-texto: #B42318; /* variante oscura para cumplir 4.5:1 sobre crema */
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-sans: "Inter", system-ui, sans-serif;
+    }
+    /* Foco visible global */
+    :focus-visible { outline: 3px solid #22B573; outline-offset: 3px; }
+    .dark :focus-visible { outline-color: #FAF6F0; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+
+<body class="bg-crema text-cafe font-sans antialiased dark:bg-cafe dark:text-crema">
+
+  <a href="#productos" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded focus:bg-acento focus:px-4 focus:py-2 focus:text-cafe">Saltar al contenido</a>
+
+  <!-- ============ 1. NAVBAR ============ -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-cafe/10 bg-crema/95 backdrop-blur dark:border-crema/10 dark:bg-cafe/95">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3" aria-label="Principal">
+      <a href="#inicio" class="font-display text-2xl font-bold">Dulce Hornero</a>
+
+      <ul class="hidden items-center gap-6 md:flex">
+        <li><a class="rounded px-1 py-1 font-medium hover:underline" href="#inicio">Inicio</a></li>
+        <li><a class="rounded px-1 py-1 font-medium hover:underline" href="#productos">Nuestros Productos</a></li>
+        <li><a class="rounded px-1 py-1 font-medium hover:underline" href="#nosotros">Nosotros</a></li>
+        <li><a class="rounded px-1 py-1 font-medium hover:underline" href="#contacto">Contacto</a></li>
+        <li><a href="#contacto" class="rounded-full bg-acento px-5 py-2 font-semibold text-cafe transition hover:brightness-110">Hacer Pedido</a></li>
+      </ul>
+
+      <button id="menu-btn" type="button" class="rounded p-2 md:hidden" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+        <svg id="icono-menu" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div id="menu-movil" class="hidden border-t border-cafe/10 px-4 pb-4 md:hidden dark:border-crema/10">
+      <ul class="flex flex-col gap-1 pt-2">
+        <li><a class="block rounded px-2 py-3 font-medium" href="#inicio">Inicio</a></li>
+        <li><a class="block rounded px-2 py-3 font-medium" href="#productos">Nuestros Productos</a></li>
+        <li><a class="block rounded px-2 py-3 font-medium" href="#nosotros">Nosotros</a></li>
+        <li><a class="block rounded px-2 py-3 font-medium" href="#contacto">Contacto</a></li>
+        <li><a href="#contacto" class="mt-2 block rounded-full bg-acento px-5 py-3 text-center font-semibold text-cafe">Hacer Pedido</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 2. HERO ============ -->
+    <section id="inicio" class="relative flex min-h-screen items-center bg-cafe bg-cover bg-center pt-16" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=70')" role="img" aria-label="Torta de chocolate artesanal decorada sobre una mesa">
+      <div class="absolute inset-0 bg-cafe/75" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-20 text-crema">
+        <h1 class="max-w-2xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Tortas que se hacen para tu momento</h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed">Pastelería artesanal en Neiva: tortas personalizadas, carrot cake con frosting de queso crema y postres hechos al día con ingredientes de calidad.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#productos" class="rounded-full border-2 border-crema px-7 py-3 text-center font-semibold transition hover:bg-crema hover:text-cafe">Ver Menú</a>
+          <a href="#contacto" class="rounded-full bg-acento px-7 py-3 text-center font-semibold text-cafe transition hover:brightness-110">Pedir Ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. PRODUCTOS ============ -->
+    <section id="productos" class="mx-auto max-w-6xl scroll-mt-16 px-4 py-20">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">Nuestros Productos</h2>
+      <p class="mt-3 max-w-xl">Todo se hornea por encargo. Elige tu favorito o pide un diseño propio.</p>
+
+      <ul id="grid-productos" class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"></ul>
+    </section>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section id="nosotros" class="scroll-mt-16 bg-cafe px-4 py-20 text-crema dark:bg-black/30">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=70" alt="Repostera decorando una torta en una cocina artesanal" loading="lazy" class="aspect-4/3 w-full rounded-2xl bg-crema/20 object-cover">
+        <div>
+          <h2 class="font-display text-3xl font-bold sm:text-4xl">Nosotros</h2>
+          <p class="mt-4 leading-relaxed">Somos un emprendimiento local de repostería. Empezamos horneando para amigos y compañeros de la universidad, y hoy hacemos tortas personalizadas para cumpleaños, grados y celebraciones en toda la ciudad.</p>
+          <p class="mt-4 leading-relaxed">Usamos mantequilla real, queso crema fresco y nada de mezclas prefabricadas. Si lo puedes imaginar, lo hornamos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. FAQ ============ -->
+    <section id="faq" class="mx-auto max-w-3xl scroll-mt-16 px-4 py-20">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl">Preguntas Frecuentes</h2>
+      <div id="acordeon" class="mt-8 divide-y divide-cafe/20 rounded-2xl border border-cafe/20 dark:divide-crema/20 dark:border-crema/20"></div>
+    </section>
+
+    <!-- ============ 5. CONTACTO Y PEDIDOS ============ -->
+    <section id="contacto" class="scroll-mt-16 bg-cafe/5 px-4 py-20 dark:bg-black/20">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="font-display text-3xl font-bold sm:text-4xl">Contacto y Pedidos</h2>
+        <p class="mt-3">Cuéntanos qué necesitas. Los campos con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.</p>
+
+        <form id="form-pedido" novalidate class="mt-8 space-y-5">
+          <div>
+            <label for="nombre" class="mb-1 block font-medium">Nombre *</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="err-nombre" class="w-full rounded-lg border-2 border-cafe/40 bg-white px-4 py-3 text-cafe dark:border-crema/40">
+            <p id="err-nombre" class="mt-1 min-h-5 text-sm font-medium text-error-texto dark:text-[#FF8A8E]" role="alert"></p>
+          </div>
+          <div>
+            <label for="correo" class="mb-1 block font-medium">Correo electrónico *</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" required aria-describedby="err-correo" class="w-full rounded-lg border-2 border-cafe/40 bg-white px-4 py-3 text-cafe dark:border-crema/40">
+            <p id="err-correo" class="mt-1 min-h-5 text-sm font-medium text-error-texto dark:text-[#FF8A8E]" role="alert"></p>
+          </div>
+          <div>
+            <label for="tipo" class="mb-1 block font-medium">Tipo de pastel *</label>
+            <select id="tipo" name="tipo" required aria-describedby="err-tipo" class="w-full rounded-lg border-2 border-cafe/40 bg-white px-4 py-3 text-cafe dark:border-crema/40">
+              <option value="">Selecciona una opción</option>
+              <option>Carrot cake</option>
+              <option>Torta personalizada</option>
+              <option>Torta de chocolate</option>
+              <option>Cheesecake</option>
+              <option>Postres individuales</option>
+              <option>Otro</option>
+            </select>
+            <p id="err-tipo" class="mt-1 min-h-5 text-sm font-medium text-error-texto dark:text-[#FF8A8E]" role="alert"></p>
+          </div>
+          <div>
+            <label for="fecha" class="mb-1 block font-medium">Fecha de entrega *</label>
+            <input id="fecha" name="fecha" type="date" required aria-describedby="err-fecha" class="w-full rounded-lg border-2 border-cafe/40 bg-white px-4 py-3 text-cafe dark:border-crema/40">
+            <p id="err-fecha" class="mt-1 min-h-5 text-sm font-medium text-error-texto dark:text-[#FF8A8E]" role="alert"></p>
+          </div>
+          <div>
+            <label for="comentarios" class="mb-1 block font-medium">Comentarios</label>
+            <textarea id="comentarios" name="comentarios" rows="4" class="w-full rounded-lg border-2 border-cafe/40 bg-white px-4 py-3 text-cafe dark:border-crema/40"></textarea>
+          </div>
+          <button type="submit" class="w-full rounded-full bg-acento px-7 py-3 font-semibold text-cafe transition hover:brightness-110 sm:w-auto">Enviar pedido</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 6. FOOTER ============ -->
+  <footer class="bg-cafe px-4 py-12 text-crema dark:bg-black/40">
+    <div class="mx-auto grid max-w-6xl gap-8 sm:grid-cols-3">
+      <div>
+        <p class="font-display text-2xl font-bold">Dulce Hornero</p>
+        <p class="mt-2 text-sm">Pastelería y repostería artesanal.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold">Contacto y horarios</h2>
+        <address class="mt-2 space-y-1 text-sm not-italic">
+          <p>Neiva, Huila</p>
+          <p><a class="underline" href="tel:+570000000000">+57 000 000 0000</a></p>
+          <p><a class="underline" href="mailto:hola@dulcehornero.co">hola@dulcehornero.co</a></p>
+          <p>Lun a Sáb: 8:00 a. m. – 6:00 p. m.</p>
+        </address>
+      </div>
+      <div>
+        <h2 class="font-semibold">Redes sociales</h2>
+        <ul class="mt-2 space-y-1 text-sm">
+          <li><a class="underline" href="#" aria-label="Instagram de Dulce Hornero">Instagram</a></li>
+          <li><a class="underline" href="#" aria-label="Facebook de Dulce Hornero">Facebook</a></li>
+          <li><a class="underline" href="#" aria-label="WhatsApp de Dulce Hornero">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mx-auto mt-10 max-w-6xl border-t border-crema/20 pt-6 text-sm">© <span id="anio">2026</span> Dulce Hornero. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Botón modo claro/oscuro -->
+  <button id="tema-btn" type="button" class="fixed right-4 bottom-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-acento text-cafe shadow-lg" aria-pressed="false" aria-label="Activar modo oscuro">
+    <span id="tema-icono" aria-hidden="true" class="text-xl">🌙</span>
+  </button>
+
+  <!-- Toast de confirmación -->
+  <div id="toast" role="status" aria-live="polite" class="pointer-events-none fixed top-20 right-4 left-4 z-[70] mx-auto max-w-sm translate-y-[-150%] rounded-lg bg-exito px-5 py-4 font-semibold text-cafe opacity-0 shadow-xl transition sm:left-auto">
+    ¡Pedido enviado! Te contactaremos pronto.
+  </div>
+
+  <!-- ============ JAVASCRIPT ============ -->
+  <script>
+    // ---------- Datos de productos ----------
+    const productos = [
+      { nombre: "Carrot Cake", desc: "Bizcocho húmedo de zanahoria y nueces con frosting de queso crema.", precio: 85000, img: "photo-1621303837174-89787a7d4729", alt: "Porción de carrot cake con frosting de queso crema" },
+      { nombre: "Torta Personalizada", desc: "Diseñada a tu gusto para cumpleaños, grados y aniversarios.", precio: 120000, img: "photo-1535141192574-5d4897c12636", alt: "Torta decorada con flores de crema" },
+      { nombre: "Torta de Chocolate", desc: "Tres capas de bizcocho de cacao con ganache semiamargo.", precio: 95000, img: "photo-1578985545062-69928b1d9587", alt: "Torta de chocolate cubierta con ganache" },
+      { nombre: "Cheesecake de Frutos Rojos", desc: "Base de galleta, crema suave y coulis de fresa y mora.", precio: 78000, img: "photo-1533134242443-d4fd215305ad", alt: "Cheesecake con salsa de frutos rojos" },
+      { nombre: "Brownies x6", desc: "Intensos, con centro suave y nueces opcionales.", precio: 32000, img: "photo-1606313564200-e75d5e30476c", alt: "Brownies de chocolate recién cortados" },
+      { nombre: "Cupcakes x12", desc: "Vainilla o chocolate con crema de mantequilla de colores.", precio: 60000, img: "photo-1486427944299-d1955d23e34d", alt: "Cupcakes decorados con crema" }
+    ];
+    const cop = new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP", maximumFractionDigits: 0 });
+
+    document.getElementById("grid-productos").innerHTML = productos.map(p => `
+      <li class="overflow-hidden rounded-2xl border border-cafe/15 bg-white text-cafe shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl focus-within:-translate-y-2 focus-within:shadow-xl">
+        <img src="https://images.unsplash.com/${p.img}?auto=format&fit=crop&w=700&q=70" alt="${p.alt}" loading="lazy" class="aspect-4/3 w-full bg-cafe/10 object-cover">
+        <div class="p-5">
+          <h3 class="font-display text-xl font-semibold">${p.nombre}</h3>
+          <p class="mt-2 text-sm leading-relaxed">${p.desc}</p>
+          <p class="mt-4 text-lg font-bold">${cop.format(p.precio)}</p>
+          <a href="#contacto" data-tipo="${p.nombre}" class="pedir mt-3 inline-block rounded-full bg-acento px-5 py-2 text-sm font-semibold text-cafe hover:brightness-110">Pedir ${p.nombre}</a>
+        </div>
+      </li>`).join("");
+
+    // Preselecciona el tipo de pastel al pedir desde una tarjeta
+    document.querySelectorAll(".pedir").forEach(a => a.addEventListener("click", () => {
+      const sel = document.getElementById("tipo");
+      const op = [...sel.options].find(o => o.text === a.dataset.tipo);
+      sel.value = op ? op.value || op.text : "";
+    }));
+
+    // ---------- Menú hamburguesa ----------
+    const menuBtn = document.getElementById("menu-btn"), menu = document.getElementById("menu-movil");
+    function toggleMenu(abrir) {
+      menu.classList.toggle("hidden", !abrir);
+      menuBtn.setAttribute("aria-expanded", abrir);
+      menuBtn.setAttribute("aria-label", abrir ? "Cerrar menú" : "Abrir menú");
+    }
+    menuBtn.addEventListener("click", () => toggleMenu(menu.classList.contains("hidden")));
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") toggleMenu(false); });
+
+    // ---------- Acordeón FAQ ----------
+    const faqs = [
+      ["¿Con cuánta anticipación debo hacer mi pedido?", "Recomendamos 3 días para tortas personalizadas y 24 horas para postres del menú."],
+      ["¿Hacen domicilios?", "Sí, entregamos en Neiva. El costo depende de la zona y se confirma al hacer el pedido."],
+      ["¿Pueden hacer tortas sin gluten o con menos azúcar?", "Podemos adaptar varias recetas. Cuéntanos tu necesidad en los comentarios del formulario."],
+      ["¿Cómo se paga?", "Pedimos un anticipo del 50% para reservar la fecha. El resto se paga al recibir. Aceptamos transferencia y efectivo."]
+    ];
+    const acordeon = document.getElementById("acordeon");
+    acordeon.innerHTML = faqs.map(([q, a], i) => `
+      <div>
+        <h3><button type="button" id="faq-b${i}" aria-expanded="false" aria-controls="faq-p${i}" class="faq-btn flex w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold">
+          <span>${q}</span><span aria-hidden="true" class="text-2xl transition-transform">+</span></button></h3>
+        <div id="faq-p${i}" role="region" aria-labelledby="faq-b${i}" class="hidden px-5 pb-5 leading-relaxed">${a}</div>
+      </div>`).join("");
+
+    acordeon.querySelectorAll(".faq-btn").forEach(btn => btn.addEventListener("click", () => {
+      const abierto = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", !abierto);
+      btn.lastElementChild.textContent = abierto ? "+" : "−";
+      document.getElementById(btn.getAttribute("aria-controls")).classList.toggle("hidden", abierto);
+    }));
+
+    // ---------- Validación del formulario ----------
+    const form = document.getElementById("form-pedido");
+    const toast = document.getElementById("toast");
+    const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    document.getElementById("fecha").min = new Date().toISOString().split("T")[0];
+
+    function setError(id, msg) {
+      const campo = document.getElementById(id), err = document.getElementById("err-" + id);
+      err.textContent = msg;
+      campo.setAttribute("aria-invalid", msg ? "true" : "false");
+      campo.classList.toggle("border-error", !!msg);
+      campo.classList.toggle("border-cafe/40", !msg);
+      return !msg;
+    }
+    function validar() {
+      const v = id => document.getElementById(id).value.trim();
+      const r = [
+        setError("nombre", v("nombre") ? "" : "Escribe tu nombre."),
+        setError("correo", !v("correo") ? "Escribe tu correo electrónico." : emailOk(v("correo")) ? "" : "Ingresa un correo válido, por ejemplo nombre@correo.com."),
+        setError("tipo", v("tipo") ? "" : "Selecciona un tipo de pastel."),
+        setError("fecha", v("fecha") ? "" : "Elige una fecha de entrega.")
+      ];
+      return r.every(Boolean);
+    }
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      if (!validar()) { form.querySelector("[aria-invalid='true']").focus(); return; }
+      form.reset();
+      toast.classList.remove("translate-y-[-150%]", "opacity-0");
+      setTimeout(() => toast.classList.add("translate-y-[-150%]", "opacity-0"), 4000);
+    });
+    ["nombre", "correo", "tipo", "fecha"].forEach(id =>
+      document.getElementById(id).addEventListener("input", () => { if (document.getElementById(id).getAttribute("aria-invalid") === "true") validar(); }));
+
+    // ---------- Modo claro / oscuro ----------
+    const root = document.documentElement, temaBtn = document.getElementById("tema-btn"), temaIcono = document.getElementById("tema-icono");
+    function aplicarTema(oscuro) {
+      root.classList.toggle("dark", oscuro);
+      temaBtn.setAttribute("aria-pressed", oscuro);
+      temaBtn.setAttribute("aria-label", oscuro ? "Activar modo claro" : "Activar modo oscuro");
+      temaIcono.textContent = oscuro ? "☀️" : "🌙";
+    }
+    aplicarTema(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    temaBtn.addEventListener("click", () => aplicarTema(!root.classList.contains("dark")));
+
+    document.getElementById("anio").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
